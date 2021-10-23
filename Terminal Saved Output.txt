@@ -1,0 +1,779 @@
+Last login: Mon Jul 13 16:07:34 on ttys003
+AMBIN01483:~ 761735$ cd /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/install-fabric.sh 
+-bash: cd: /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/install-fabric.sh: Not a directory
+AMBIN01483:~ 761735$ /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA 
+-bash: /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA: is a directory
+AMBIN01483:~ 761735$ /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/install-fabric.sh 
+/Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/install-fabric.sh: line 2: ./install-actions.sh: No such file or directory
+/Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/install-fabric.sh: line 47: is_command_present: command not found
+/Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/install-fabric.sh: line 48: log_error: command not found
+/Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/install-fabric.sh: line 52: is_command_present: command not found
+/Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/install-fabric.sh: line 53: log_error: command not found
+AMBIN01483:~ 761735$ cd /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA 
+AMBIN01483:KonyFabricSingleContainer-8.4.3.4_GA 761735$ /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/install-fabric.sh 
+Please enter following details
+========================================
+Installation Details
+----------------------------------------
+Install Environment name: dev
+========================================
+Application Server Details
+----------------------------------------
+Domain Name: localhost
+Server Port: 12321
+========================================
+Database details
+----------------------------------------
+Select database type
+1) MySQL
+2) SQLServer
+Please select database server: 1
+Database Hostname: KonyFabricDB
+Database Port: 3306
+Database Username: root
+Database Password: 
+Database Prefix: kony
+Database Suffix: singletest
+Use existing databases from a previous Kony Fabric instance? (Y/N): n
+========================================
+Kony Fabric Account Registration Details
+----------------------------------------
+User Id: arumugam.t@cognizant.com
+Password: 
+First Name: Arumugam
+Last Name: T
+Environment Name: KonyFabricTraining
+----------------------------------------
+This is the time zone your database is running on. This input is a string of the format Etc/UTC.
+For determining what value to set for your time zone, please refer https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+Time Zone: Asia/Kolkata
+Jul 13, 2020 5:05:49 PM com.konylabs.middleware.common.ServerPropertiesUtil <init>
+INFO: Reading the properties file
+Jul 13, 2020 5:05:49 PM com.konylabs.middleware.common.ServerPropertiesUtil <init>
+INFO: Reading the properties file
+Jul 13, 2020 5:05:49 PM com.konylabs.middleware.common.ServerPropertiesUtil <init>
+INFO: Reading the properties file
+ab5b24ad8be6
+"docker rm" requires at least 1 argument.
+See 'docker rm --help'.
+
+Usage:  docker rm [OPTIONS] CONTAINER [CONTAINER...]
+
+Remove one or more containers
+Pulling flyway ... done
+Creating flyway_flyway_1 ... done
+Waiting for DB migrations to complete (this may take upto 10 minutes)...
+openjdk version "11.0.2" 2019-01-15
+OpenJDK Runtime Environment (build 11.0.2+9-Debian-3bpo91)
+OpenJDK 64-Bit Server VM (build 11.0.2+9-Debian-3bpo91, mixed mode, sharing)
+java.sql.SQLNonTransientConnectionException: Could not connect to address=(host=KonyFabricDB)(port=3306)(type=master) : KonyFabricDB
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:175)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.connException(ExceptionMapper.java:83)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1092)
+	at org.mariadb.jdbc.internal.util.Utils.retrieveProxy(Utils.java:493)
+	at org.mariadb.jdbc.MariaDbConnection.newConnection(MariaDbConnection.java:156)
+	at org.mariadb.jdbc.Driver.connect(Driver.java:90)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at com.kony.fabric.containers.db.DatabaseHelper.getDatabaseConnection(DatabaseHelper.java:43)
+	at com.kony.fabric.containers.db.DatabaseHelper.executeSqlQueries(DatabaseHelper.java:25)
+	at com.kony.fabric.containers.db.DatabaseHelper.createDatabase(DatabaseHelper.java:19)
+	at com.kony.fabric.containers.db.DatabaseHelper.createDatabases(DatabaseHelper.java:54)
+	at com.kony.fabric.containers.db.MySQLDatabaseHelper.<init>(MySQLDatabaseHelper.java:18)
+	at com.kony.fabric.containers.db.CreateDatabaseFactory.createDatabaseHelper(CreateDatabaseFactory.java:33)
+	at com.kony.fabric.containers.db.CreateDatabaseFactory.main(CreateDatabaseFactory.java:49)
+Caused by: java.net.UnknownHostException: KonyFabricDB
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:220)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403)
+	at java.base/java.net.Socket.connect(Socket.java:591)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connect(AbstractConnectProtocol.java:447)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1084)
+	... 12 more
+Error occured while creating required databases
+Error occured while executing DB migrations.
+Check /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/flyway/dbmigration-130720170343.log for more information
+AMBIN01483:KonyFabricSingleContainer-8.4.3.4_GA 761735$ /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/install-fabric.sh 
+Please enter following details
+===============================================================
+Installation Details
+---------------------------------------------------------------
+Install Environment name: dev
+===============================================================
+Application Server Details
+---------------------------------------------------------------
+Domain Name: 192.168.1.3
+Server Port: 12321
+===============================================================
+Database details
+---------------------------------------------------------------
+Select database type
+1) MySQL
+2) SQLServer
+Please select database server: 1
+Database Hostname: localhost
+Database Port: 3306
+Database Username: root
+Database Password: 
+Database Prefix: kony
+Database Suffix: singltest
+Use existing databases from a previous Kony Fabric instance? (Y/N): n
+===============================================================
+Kony Fabric Account Registration Details
+---------------------------------------------------------------
+User Id: arumugam.t@cognizant.com
+Password: 
+First Name: Arumugam
+Last Name: T
+Environment Name: KonyMFTraining
+---------------------------------------------------------------
+This is the time zone your database is running on. This input is a string of the format Etc/UTC.
+For determining what value to set for your time zone, please refer https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+Time Zone: Asia/Kolkata
+Jul 13, 2020 5:08:05 PM com.konylabs.middleware.common.ServerPropertiesUtil <init>
+INFO: Reading the properties file
+Jul 13, 2020 5:08:06 PM com.konylabs.middleware.common.ServerPropertiesUtil <init>
+INFO: Reading the properties file
+Jul 13, 2020 5:08:06 PM com.konylabs.middleware.common.ServerPropertiesUtil <init>
+INFO: Reading the properties file
+3a7e5302b635
+"docker rm" requires at least 1 argument.
+See 'docker rm --help'.
+
+Usage:  docker rm [OPTIONS] CONTAINER [CONTAINER...]
+
+Remove one or more containers
+Pulling flyway ... done
+Creating flyway_flyway_1 ... done
+Waiting for DB migrations to complete (this may take upto 10 minutes)...
+openjdk version "11.0.2" 2019-01-15
+OpenJDK Runtime Environment (build 11.0.2+9-Debian-3bpo91)
+OpenJDK 64-Bit Server VM (build 11.0.2+9-Debian-3bpo91, mixed mode, sharing)
+java.sql.SQLNonTransientConnectionException: Could not connect to address=(host=localhost)(port=3306)(type=master) : Connection refused (Connection refused)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:175)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.connException(ExceptionMapper.java:83)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1092)
+	at org.mariadb.jdbc.internal.util.Utils.retrieveProxy(Utils.java:493)
+	at org.mariadb.jdbc.MariaDbConnection.newConnection(MariaDbConnection.java:156)
+	at org.mariadb.jdbc.Driver.connect(Driver.java:90)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at com.kony.fabric.containers.db.DatabaseHelper.getDatabaseConnection(DatabaseHelper.java:43)
+	at com.kony.fabric.containers.db.DatabaseHelper.executeSqlQueries(DatabaseHelper.java:25)
+	at com.kony.fabric.containers.db.DatabaseHelper.createDatabase(DatabaseHelper.java:19)
+	at com.kony.fabric.containers.db.DatabaseHelper.createDatabases(DatabaseHelper.java:54)
+	at com.kony.fabric.containers.db.MySQLDatabaseHelper.<init>(MySQLDatabaseHelper.java:18)
+	at com.kony.fabric.containers.db.CreateDatabaseFactory.createDatabaseHelper(CreateDatabaseFactory.java:33)
+	at com.kony.fabric.containers.db.CreateDatabaseFactory.main(CreateDatabaseFactory.java:49)
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at java.base/java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:399)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:242)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:224)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403)
+	at java.base/java.net.Socket.connect(Socket.java:591)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connect(AbstractConnectProtocol.java:447)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1084)
+	... 12 more
+Error occured while creating required databases
+Error occured while executing DB migrations.
+Check /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/flyway/dbmigration-130720170640.log for more information
+AMBIN01483:KonyFabricSingleContainer-8.4.3.4_GA 761735$ /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/install-fabric.sh 
+Please enter following details
+=====================================================================================================
+Installation Details
+-----------------------------------------------------------------------------------------------------
+Install Environment name: dev
+=====================================================================================================
+Application Server Details
+-----------------------------------------------------------------------------------------------------
+Domain Name: localhost
+Server Port: 12321
+=====================================================================================================
+Database details
+-----------------------------------------------------------------------------------------------------
+Select database type
+1) MySQL
+2) SQLServer
+Please select database server: 1
+Database Hostname: localhost
+Database Port: 3306
+Database Username: root
+Database Password: 
+Database Prefix: kony
+Database Suffix: singletest
+Use existing databases from a previous Kony Fabric instance? (Y/N): n
+=====================================================================================================
+Kony Fabric Account Registration Details
+-----------------------------------------------------------------------------------------------------
+User Id: arumugam.t@cognizant.com
+Password: 
+First Name: Arumugam
+Last Name: T
+Environment Name: KonyMFTraining
+-----------------------------------------------------------------------------------------------------
+This is the time zone your database is running on. This input is a string of the format Etc/UTC.
+For determining what value to set for your time zone, please refer https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+Time Zone: Asia/Kolkata
+Jul 13, 2020 6:08:32 PM com.konylabs.middleware.common.ServerPropertiesUtil <init>
+INFO: Reading the properties file
+Jul 13, 2020 6:08:32 PM com.konylabs.middleware.common.ServerPropertiesUtil <init>
+INFO: Reading the properties file
+Jul 13, 2020 6:08:33 PM com.konylabs.middleware.common.ServerPropertiesUtil <init>
+INFO: Reading the properties file
+f843047a3e8d
+"docker rm" requires at least 1 argument.
+See 'docker rm --help'.
+
+Usage:  docker rm [OPTIONS] CONTAINER [CONTAINER...]
+
+Remove one or more containers
+Pulling flyway ... done
+Creating flyway_flyway_1 ... done
+Waiting for DB migrations to complete (this may take upto 10 minutes)...
+openjdk version "11.0.2" 2019-01-15
+OpenJDK Runtime Environment (build 11.0.2+9-Debian-3bpo91)
+OpenJDK 64-Bit Server VM (build 11.0.2+9-Debian-3bpo91, mixed mode, sharing)
+java.sql.SQLNonTransientConnectionException: Could not connect to address=(host=localhost)(port=3306)(type=master) : Connection refused (Connection refused)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:175)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.connException(ExceptionMapper.java:83)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1092)
+	at org.mariadb.jdbc.internal.util.Utils.retrieveProxy(Utils.java:493)
+	at org.mariadb.jdbc.MariaDbConnection.newConnection(MariaDbConnection.java:156)
+	at org.mariadb.jdbc.Driver.connect(Driver.java:90)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at com.kony.fabric.containers.db.DatabaseHelper.getDatabaseConnection(DatabaseHelper.java:43)
+	at com.kony.fabric.containers.db.DatabaseHelper.executeSqlQueries(DatabaseHelper.java:25)
+	at com.kony.fabric.containers.db.DatabaseHelper.createDatabase(DatabaseHelper.java:19)
+	at com.kony.fabric.containers.db.DatabaseHelper.createDatabases(DatabaseHelper.java:54)
+	at com.kony.fabric.containers.db.MySQLDatabaseHelper.<init>(MySQLDatabaseHelper.java:18)
+	at com.kony.fabric.containers.db.CreateDatabaseFactory.createDatabaseHelper(CreateDatabaseFactory.java:33)
+	at com.kony.fabric.containers.db.CreateDatabaseFactory.main(CreateDatabaseFactory.java:49)
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at java.base/java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:399)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:242)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:224)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403)
+	at java.base/java.net.Socket.connect(Socket.java:591)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connect(AbstractConnectProtocol.java:447)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1084)
+	... 12 more
+Error occured while creating required databases
+Error occured while executing DB migrations.
+Check /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/flyway/dbmigration-130720180402.log for more information
+AMBIN01483:KonyFabricSingleContainer-8.4.3.4_GA 761735$ /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/install-fabric.sh 
+Please enter following details
+=====================================================================================================
+Installation Details
+-----------------------------------------------------------------------------------------------------
+Install Environment name: dev
+=====================================================================================================
+Application Server Details
+-----------------------------------------------------------------------------------------------------
+Domain Name: AMBIN01483.cts.com
+Server Port: 12321
+=====================================================================================================
+Database details
+-----------------------------------------------------------------------------------------------------
+Select database type
+1) MySQL
+2) SQLServer
+Please select database server: 1
+Database Hostname: AMBIN01483.cts.com
+Database Port: 3306
+Database Username: root
+Database Password: 
+Database Prefix: KonyDBTraining
+Database Suffix: KonyDBSingletest
+Use existing databases from a previous Kony Fabric instance? (Y/N): n
+=====================================================================================================
+Kony Fabric Account Registration Details
+-----------------------------------------------------------------------------------------------------
+User Id: arumugam.t@cognizant.com
+Password: 
+First Name: Arumugam
+Last Name: T
+Environment Name: KonyMF
+-----------------------------------------------------------------------------------------------------
+This is the time zone your database is running on. This input is a string of the format Etc/UTC.
+For determining what value to set for your time zone, please refer https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+Time Zone: Asia/Kolkata
+Jul 13, 2020 6:23:12 PM com.konylabs.middleware.common.ServerPropertiesUtil <init>
+INFO: Reading the properties file
+Jul 13, 2020 6:23:12 PM com.konylabs.middleware.common.ServerPropertiesUtil <init>
+INFO: Reading the properties file
+Jul 13, 2020 6:23:13 PM com.konylabs.middleware.common.ServerPropertiesUtil <init>
+INFO: Reading the properties file
+f874491c5cb4
+"docker rm" requires at least 1 argument.
+See 'docker rm --help'.
+
+Usage:  docker rm [OPTIONS] CONTAINER [CONTAINER...]
+
+Remove one or more containers
+Pulling flyway ... done
+Creating flyway_flyway_1 ... done
+Waiting for DB migrations to complete (this may take upto 10 minutes)...
+openjdk version "11.0.2" 2019-01-15
+OpenJDK Runtime Environment (build 11.0.2+9-Debian-3bpo91)
+OpenJDK 64-Bit Server VM (build 11.0.2+9-Debian-3bpo91, mixed mode, sharing)
+java.sql.SQLNonTransientConnectionException: Could not connect to address=(host=AMBIN01483.cts.com)(port=3306)(type=master) : AMBIN01483.cts.com
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:175)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.connException(ExceptionMapper.java:83)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1092)
+	at org.mariadb.jdbc.internal.util.Utils.retrieveProxy(Utils.java:493)
+	at org.mariadb.jdbc.MariaDbConnection.newConnection(MariaDbConnection.java:156)
+	at org.mariadb.jdbc.Driver.connect(Driver.java:90)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at com.kony.fabric.containers.db.DatabaseHelper.getDatabaseConnection(DatabaseHelper.java:43)
+	at com.kony.fabric.containers.db.DatabaseHelper.executeSqlQueries(DatabaseHelper.java:25)
+	at com.kony.fabric.containers.db.DatabaseHelper.createDatabase(DatabaseHelper.java:19)
+	at com.kony.fabric.containers.db.DatabaseHelper.createDatabases(DatabaseHelper.java:54)
+	at com.kony.fabric.containers.db.MySQLDatabaseHelper.<init>(MySQLDatabaseHelper.java:18)
+	at com.kony.fabric.containers.db.CreateDatabaseFactory.createDatabaseHelper(CreateDatabaseFactory.java:33)
+	at com.kony.fabric.containers.db.CreateDatabaseFactory.main(CreateDatabaseFactory.java:49)
+Caused by: java.net.UnknownHostException: AMBIN01483.cts.com
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:220)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403)
+	at java.base/java.net.Socket.connect(Socket.java:591)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connect(AbstractConnectProtocol.java:447)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1084)
+	... 12 more
+Error occured while creating required databases
+Error occured while executing DB migrations.
+Check /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/flyway/dbmigration-130720181152.log for more information
+AMBIN01483:KonyFabricSingleContainer-8.4.3.4_GA 761735$ /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/install-fabric.sh 
+Please enter following details
+=====================================================================================================
+Installation Details
+-----------------------------------------------------------------------------------------------------
+Install Environment name: dev
+=====================================================================================================
+Application Server Details
+-----------------------------------------------------------------------------------------------------
+Domain Name: 192.168.1.3
+Server Port: 12321
+=====================================================================================================
+Database details
+-----------------------------------------------------------------------------------------------------
+Select database type
+1) MySQL
+2) SQLServer
+Please select database server: 1
+Database Hostname: 192.168.1.3
+Database Port: 3306
+Database Username: root
+Database Password: 
+Database Prefix: Kony
+Database Suffix: KonDBSingltestDB
+Use existing databases from a previous Kony Fabric instance? (Y/N): n
+=====================================================================================================
+Kony Fabric Account Registration Details
+-----------------------------------------------------------------------------------------------------
+User Id: arumugam.t@cognizant.com
+Password: 
+First Name: Arumugam
+Last Name: T
+Environment Name: KonyMFTrining                
+-----------------------------------------------------------------------------------------------------
+This is the time zone your database is running on. This input is a string of the format Etc/UTC.
+For determining what value to set for your time zone, please refer https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+Time Zone: Asia/Kolkata
+Jul 13, 2020 6:37:09 PM com.konylabs.middleware.common.ServerPropertiesUtil <init>
+INFO: Reading the properties file
+Jul 13, 2020 6:37:10 PM com.konylabs.middleware.common.ServerPropertiesUtil <init>
+INFO: Reading the properties file
+Jul 13, 2020 6:37:10 PM com.konylabs.middleware.common.ServerPropertiesUtil <init>
+INFO: Reading the properties file
+26727dfd8ffd
+"docker rm" requires at least 1 argument.
+See 'docker rm --help'.
+
+Usage:  docker rm [OPTIONS] CONTAINER [CONTAINER...]
+
+Remove one or more containers
+Pulling flyway ... done
+Creating flyway_flyway_1 ... done
+Waiting for DB migrations to complete (this may take upto 10 minutes)...
+openjdk version "11.0.2" 2019-01-15
+OpenJDK Runtime Environment (build 11.0.2+9-Debian-3bpo91)
+OpenJDK 64-Bit Server VM (build 11.0.2+9-Debian-3bpo91, mixed mode, sharing)
+java.sql.SQLException: Host '192.168.1.3' is not allowed to connect to this MySQL server
+	at org.mariadb.jdbc.internal.com.read.ReadInitialHandShakePacket.<init>(ReadInitialHandShakePacket.java:91)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.handleConnectionPhases(AbstractConnectProtocol.java:711)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connect(AbstractConnectProtocol.java:453)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1084)
+	at org.mariadb.jdbc.internal.util.Utils.retrieveProxy(Utils.java:493)
+	at org.mariadb.jdbc.MariaDbConnection.newConnection(MariaDbConnection.java:156)
+	at org.mariadb.jdbc.Driver.connect(Driver.java:90)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at com.kony.fabric.containers.db.DatabaseHelper.getDatabaseConnection(DatabaseHelper.java:43)
+	at com.kony.fabric.containers.db.DatabaseHelper.executeSqlQueries(DatabaseHelper.java:25)
+	at com.kony.fabric.containers.db.DatabaseHelper.createDatabase(DatabaseHelper.java:19)
+	at com.kony.fabric.containers.db.DatabaseHelper.createDatabases(DatabaseHelper.java:54)
+	at com.kony.fabric.containers.db.MySQLDatabaseHelper.<init>(MySQLDatabaseHelper.java:18)
+	at com.kony.fabric.containers.db.CreateDatabaseFactory.createDatabaseHelper(CreateDatabaseFactory.java:33)
+	at com.kony.fabric.containers.db.CreateDatabaseFactory.main(CreateDatabaseFactory.java:49)
+Error occured while creating required databases
+Error occured while executing DB migrations.
+Check /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/flyway/dbmigration-130720183406.log for more information
+AMBIN01483:KonyFabricSingleContainer-8.4.3.4_GA 761735$ /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/install-fabric.sh 
+Please enter following details
+=====================================================================================================
+Installation Details
+-----------------------------------------------------------------------------------------------------
+Install Environment name: dev
+=====================================================================================================
+Application Server Details
+-----------------------------------------------------------------------------------------------------
+Domain Name: 192.168.1.3
+Server Port: 12321
+=====================================================================================================
+Database details
+-----------------------------------------------------------------------------------------------------
+Select database type
+1) MySQL
+2) SQLServer
+Please select database server: 1
+Database Hostname: 127.0.0.1
+Database Port: 3306
+Database Username: root
+Database Password: 
+Database Prefix: KonyDB
+Database Suffix: KonySingleInstance
+Use existing databases from a previous Kony Fabric instance? (Y/N): n
+=====================================================================================================
+Kony Fabric Account Registration Details
+-----------------------------------------------------------------------------------------------------
+User Id: arumugam.t@cognizant.com
+Password: 
+First Name: Arumugam
+Last Name: T
+Environment Name: KonyMF
+-----------------------------------------------------------------------------------------------------
+This is the time zone your database is running on. This input is a string of the format Etc/UTC.
+For determining what value to set for your time zone, please refer https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+Time Zone: Asia/Kolkata
+Jul 13, 2020 6:50:49 PM com.konylabs.middleware.common.ServerPropertiesUtil <init>
+INFO: Reading the properties file
+Jul 13, 2020 6:50:49 PM com.konylabs.middleware.common.ServerPropertiesUtil <init>
+INFO: Reading the properties file
+Jul 13, 2020 6:50:50 PM com.konylabs.middleware.common.ServerPropertiesUtil <init>
+INFO: Reading the properties file
+12a0bea64bed
+"docker rm" requires at least 1 argument.
+See 'docker rm --help'.
+
+Usage:  docker rm [OPTIONS] CONTAINER [CONTAINER...]
+
+Remove one or more containers
+Pulling flyway ... done
+Creating flyway_flyway_1 ... done
+Waiting for DB migrations to complete (this may take upto 10 minutes)...
+openjdk version "11.0.2" 2019-01-15
+OpenJDK Runtime Environment (build 11.0.2+9-Debian-3bpo91)
+OpenJDK 64-Bit Server VM (build 11.0.2+9-Debian-3bpo91, mixed mode, sharing)
+java.sql.SQLNonTransientConnectionException: Could not connect to address=(host=127.0.0.1)(port=3306)(type=master) : Connection refused (Connection refused)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:175)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.connException(ExceptionMapper.java:83)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1092)
+	at org.mariadb.jdbc.internal.util.Utils.retrieveProxy(Utils.java:493)
+	at org.mariadb.jdbc.MariaDbConnection.newConnection(MariaDbConnection.java:156)
+	at org.mariadb.jdbc.Driver.connect(Driver.java:90)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at com.kony.fabric.containers.db.DatabaseHelper.getDatabaseConnection(DatabaseHelper.java:43)
+	at com.kony.fabric.containers.db.DatabaseHelper.executeSqlQueries(DatabaseHelper.java:25)
+	at com.kony.fabric.containers.db.DatabaseHelper.createDatabase(DatabaseHelper.java:19)
+	at com.kony.fabric.containers.db.DatabaseHelper.createDatabases(DatabaseHelper.java:54)
+	at com.kony.fabric.containers.db.MySQLDatabaseHelper.<init>(MySQLDatabaseHelper.java:18)
+	at com.kony.fabric.containers.db.CreateDatabaseFactory.createDatabaseHelper(CreateDatabaseFactory.java:33)
+	at com.kony.fabric.containers.db.CreateDatabaseFactory.main(CreateDatabaseFactory.java:49)
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at java.base/java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:399)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:242)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:224)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403)
+	at java.base/java.net.Socket.connect(Socket.java:591)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connect(AbstractConnectProtocol.java:447)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1084)
+	... 12 more
+Error occured while creating required databases
+Error occured while executing DB migrations.
+Check /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/flyway/dbmigration-130720184910.log for more information
+AMBIN01483:KonyFabricSingleContainer-8.4.3.4_GA 761735$ /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/install-fabric.sh 
+Please enter following details
+=====================================================================================================
+Installation Details
+-----------------------------------------------------------------------------------------------------
+Install Environment name: dev
+=====================================================================================================
+Application Server Details
+-----------------------------------------------------------------------------------------------------
+Domain Name: 192.168.1.3
+Server Port: 12321
+=====================================================================================================
+Database details
+-----------------------------------------------------------------------------------------------------
+Select database type
+1) MySQL
+2) SQLServer
+Please select database server: 1
+Database Hostname: 127.0.0.1
+Database Port: 3306
+Database Username: root
+Database Password: 
+Database Prefix: KonyDB
+Database Suffix: KonyMFImnstance        
+Use existing databases from a previous Kony Fabric instance? (Y/N): y
+Previous install artifact directory: /Users/761735/                                                    
+=====================================================================================================
+This is the time zone your database is running on. This input is a string of the format Etc/UTC.
+For determining what value to set for your time zone, please refer https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+Time Zone: Asia/Kolkata
+./install-actions.sh: line 262: declare: -A: invalid option
+declare: usage: declare [-afFirtx] [-p] [name[=value] ...]
+./install-actions.sh: line 261: /Users/761735//upgrade.properties: No such file or directory
+./install-actions.sh: line 262: declare: -A: invalid option
+declare: usage: declare [-afFirtx] [-p] [name[=value] ...]
+./install-actions.sh: line 261: /Users/761735//upgrade.properties: No such file or directory
+./install-actions.sh: line 262: declare: -A: invalid option
+declare: usage: declare [-afFirtx] [-p] [name[=value] ...]
+./install-actions.sh: line 261: /Users/761735//upgrade.properties: No such file or directory
+./install-actions.sh: line 262: declare: -A: invalid option
+declare: usage: declare [-afFirtx] [-p] [name[=value] ...]
+./install-actions.sh: line 261: /Users/761735//upgrade.properties: No such file or directory
+./install-actions.sh: line 262: declare: -A: invalid option
+declare: usage: declare [-afFirtx] [-p] [name[=value] ...]
+./install-actions.sh: line 261: /Users/761735//upgrade.properties: No such file or directory
+Jul 13, 2020 7:13:40 PM com.konylabs.middleware.common.ServerPropertiesUtil <init>
+INFO: Reading the properties file
+Jul 13, 2020 7:13:40 PM com.konylabs.middleware.common.ServerPropertiesUtil <init>
+INFO: Reading the properties file
+Jul 13, 2020 7:13:41 PM com.konylabs.middleware.common.ServerPropertiesUtil <init>
+INFO: Reading the properties file
+756cd59b15cd
+"docker rm" requires at least 1 argument.
+See 'docker rm --help'.
+
+Usage:  docker rm [OPTIONS] CONTAINER [CONTAINER...]
+
+Remove one or more containers
+Pulling flyway ... done
+Creating flyway_flyway_1 ... done
+Waiting for DB migrations to complete (this may take upto 10 minutes)...
+openjdk version "11.0.2" 2019-01-15
+OpenJDK Runtime Environment (build 11.0.2+9-Debian-3bpo91)
+OpenJDK 64-Bit Server VM (build 11.0.2+9-Debian-3bpo91, mixed mode, sharing)
+java.sql.SQLNonTransientConnectionException: Could not connect to address=(host=127.0.0.1)(port=3306)(type=master) : Connection refused (Connection refused)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:175)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.connException(ExceptionMapper.java:83)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1092)
+	at org.mariadb.jdbc.internal.util.Utils.retrieveProxy(Utils.java:493)
+	at org.mariadb.jdbc.MariaDbConnection.newConnection(MariaDbConnection.java:156)
+	at org.mariadb.jdbc.Driver.connect(Driver.java:90)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at com.kony.fabric.containers.db.DatabaseHelper.getDatabaseConnection(DatabaseHelper.java:43)
+	at com.kony.fabric.containers.db.DatabaseHelper.executeSqlQueries(DatabaseHelper.java:25)
+	at com.kony.fabric.containers.db.DatabaseHelper.createDatabase(DatabaseHelper.java:19)
+	at com.kony.fabric.containers.db.DatabaseHelper.createDatabases(DatabaseHelper.java:54)
+	at com.kony.fabric.containers.db.MySQLDatabaseHelper.<init>(MySQLDatabaseHelper.java:18)
+	at com.kony.fabric.containers.db.CreateDatabaseFactory.createDatabaseHelper(CreateDatabaseFactory.java:33)
+	at com.kony.fabric.containers.db.CreateDatabaseFactory.main(CreateDatabaseFactory.java:49)
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at java.base/java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:399)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:242)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:224)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403)
+	at java.base/java.net.Socket.connect(Socket.java:591)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connect(AbstractConnectProtocol.java:447)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1084)
+	... 12 more
+Error occured while creating required databases
+Error occured while executing DB migrations.
+Check /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/flyway/dbmigration-130720190411.log for more information
+AMBIN01483:KonyFabricSingleContainer-8.4.3.4_GA 761735$ /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/install-fabric.sh 
+Please enter following details
+=====================================================================================================
+Installation Details
+-----------------------------------------------------------------------------------------------------
+Install Environment name: dev
+=====================================================================================================
+Application Server Details
+-----------------------------------------------------------------------------------------------------
+Domain Name: 192.168.1.3
+Server Port: 12321
+=====================================================================================================
+Database details
+-----------------------------------------------------------------------------------------------------
+Select database type
+1) MySQL
+2) SQLServer
+Please select database server: 1
+Database Hostname: localhost
+Database Port: 3306
+Database Username: root
+Database Password: 
+Database Prefix: KonyDB
+Database Suffix: KonBBSingleTest
+Use existing databases from a previous Kony Fabric instance? (Y/N): n
+=====================================================================================================
+Kony Fabric Account Registration Details
+-----------------------------------------------------------------------------------------------------
+User Id: arumugam.t@cognizant.com
+Password: 
+First Name: Arumugam
+Last Name: T
+Environment Name: KonyMFTraining
+-----------------------------------------------------------------------------------------------------
+This is the time zone your database is running on. This input is a string of the format Etc/UTC.
+For determining what value to set for your time zone, please refer https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+Time Zone: Asia/Kolkata
+Jul 13, 2020 7:35:03 PM com.konylabs.middleware.common.ServerPropertiesUtil <init>
+INFO: Reading the properties file
+Jul 13, 2020 7:35:03 PM com.konylabs.middleware.common.ServerPropertiesUtil <init>
+INFO: Reading the properties file
+Jul 13, 2020 7:35:03 PM com.konylabs.middleware.common.ServerPropertiesUtil <init>
+INFO: Reading the properties file
+425e5389e84e
+"docker rm" requires at least 1 argument.
+See 'docker rm --help'.
+
+Usage:  docker rm [OPTIONS] CONTAINER [CONTAINER...]
+
+Remove one or more containers
+Pulling flyway ... done
+Creating flyway_flyway_1 ... done
+Waiting for DB migrations to complete (this may take upto 10 minutes)...
+openjdk version "11.0.2" 2019-01-15
+OpenJDK Runtime Environment (build 11.0.2+9-Debian-3bpo91)
+OpenJDK 64-Bit Server VM (build 11.0.2+9-Debian-3bpo91, mixed mode, sharing)
+java.sql.SQLNonTransientConnectionException: Could not connect to address=(host=localhost)(port=3306)(type=master) : Connection refused (Connection refused)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:175)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.connException(ExceptionMapper.java:83)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1092)
+	at org.mariadb.jdbc.internal.util.Utils.retrieveProxy(Utils.java:493)
+	at org.mariadb.jdbc.MariaDbConnection.newConnection(MariaDbConnection.java:156)
+	at org.mariadb.jdbc.Driver.connect(Driver.java:90)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at com.kony.fabric.containers.db.DatabaseHelper.getDatabaseConnection(DatabaseHelper.java:43)
+	at com.kony.fabric.containers.db.DatabaseHelper.executeSqlQueries(DatabaseHelper.java:25)
+	at com.kony.fabric.containers.db.DatabaseHelper.createDatabase(DatabaseHelper.java:19)
+	at com.kony.fabric.containers.db.DatabaseHelper.createDatabases(DatabaseHelper.java:54)
+	at com.kony.fabric.containers.db.MySQLDatabaseHelper.<init>(MySQLDatabaseHelper.java:18)
+	at com.kony.fabric.containers.db.CreateDatabaseFactory.createDatabaseHelper(CreateDatabaseFactory.java:33)
+	at com.kony.fabric.containers.db.CreateDatabaseFactory.main(CreateDatabaseFactory.java:49)
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at java.base/java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:399)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:242)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:224)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403)
+	at java.base/java.net.Socket.connect(Socket.java:591)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connect(AbstractConnectProtocol.java:447)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1084)
+	... 12 more
+Error occured while creating required databases
+Error occured while executing DB migrations.
+Check /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/flyway/dbmigration-130720193312.log for more information
+AMBIN01483:KonyFabricSingleContainer-8.4.3.4_GA 761735$ /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/install-fabric.sh 
+Please enter following details
+=====================================================================================================
+Installation Details
+-----------------------------------------------------------------------------------------------------
+Install Environment name: dev
+=====================================================================================================
+Application Server Details
+-----------------------------------------------------------------------------------------------------
+Domain Name: 192.168.1.3
+Server Port: 12321
+=====================================================================================================
+Database details
+-----------------------------------------------------------------------------------------------------
+Select database type
+1) MySQL
+2) SQLServer
+Please select database server: 1
+Database Hostname: localhost
+Database Port: 3306
+Database Username: root
+Database Password: 
+Database Prefix: KonyDB
+Database Suffix: KonBBSingleTest
+Use existing databases from a previous Kony Fabric instance? (Y/N): y
+Previous install artifact directory: /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA 
+=====================================================================================================
+This is the time zone your database is running on. This input is a string of the format Etc/UTC.
+For determining what value to set for your time zone, please refer https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+Time Zone: Asia/Kolkata
+./install-actions.sh: line 262: declare: -A: invalid option
+declare: usage: declare [-afFirtx] [-p] [name[=value] ...]
+./install-actions.sh: line 261: /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/upgrade.properties: No such file or directory
+./install-actions.sh: line 262: declare: -A: invalid option
+declare: usage: declare [-afFirtx] [-p] [name[=value] ...]
+./install-actions.sh: line 261: /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/upgrade.properties: No such file or directory
+./install-actions.sh: line 262: declare: -A: invalid option
+declare: usage: declare [-afFirtx] [-p] [name[=value] ...]
+./install-actions.sh: line 261: /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/upgrade.properties: No such file or directory
+./install-actions.sh: line 262: declare: -A: invalid option
+declare: usage: declare [-afFirtx] [-p] [name[=value] ...]
+./install-actions.sh: line 261: /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/upgrade.properties: No such file or directory
+./install-actions.sh: line 262: declare: -A: invalid option
+declare: usage: declare [-afFirtx] [-p] [name[=value] ...]
+./install-actions.sh: line 261: /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/upgrade.properties: No such file or directory
+Jul 13, 2020 7:42:25 PM com.konylabs.middleware.common.ServerPropertiesUtil <init>
+INFO: Reading the properties file
+Jul 13, 2020 7:42:26 PM com.konylabs.middleware.common.ServerPropertiesUtil <init>
+INFO: Reading the properties file
+Jul 13, 2020 7:42:26 PM com.konylabs.middleware.common.ServerPropertiesUtil <init>
+INFO: Reading the properties file
+f9beae6c4bec
+"docker rm" requires at least 1 argument.
+See 'docker rm --help'.
+
+Usage:  docker rm [OPTIONS] CONTAINER [CONTAINER...]
+
+Remove one or more containers
+Pulling flyway ... done
+Creating flyway_flyway_1 ... done
+Waiting for DB migrations to complete (this may take upto 10 minutes)...
+openjdk version "11.0.2" 2019-01-15
+OpenJDK Runtime Environment (build 11.0.2+9-Debian-3bpo91)
+OpenJDK 64-Bit Server VM (build 11.0.2+9-Debian-3bpo91, mixed mode, sharing)
+java.sql.SQLNonTransientConnectionException: Could not connect to address=(host=localhost)(port=3306)(type=master) : Connection refused (Connection refused)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.get(ExceptionMapper.java:175)
+	at org.mariadb.jdbc.internal.util.exceptions.ExceptionMapper.connException(ExceptionMapper.java:83)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1092)
+	at org.mariadb.jdbc.internal.util.Utils.retrieveProxy(Utils.java:493)
+	at org.mariadb.jdbc.MariaDbConnection.newConnection(MariaDbConnection.java:156)
+	at org.mariadb.jdbc.Driver.connect(Driver.java:90)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at com.kony.fabric.containers.db.DatabaseHelper.getDatabaseConnection(DatabaseHelper.java:43)
+	at com.kony.fabric.containers.db.DatabaseHelper.executeSqlQueries(DatabaseHelper.java:25)
+	at com.kony.fabric.containers.db.DatabaseHelper.createDatabase(DatabaseHelper.java:19)
+	at com.kony.fabric.containers.db.DatabaseHelper.createDatabases(DatabaseHelper.java:54)
+	at com.kony.fabric.containers.db.MySQLDatabaseHelper.<init>(MySQLDatabaseHelper.java:18)
+	at com.kony.fabric.containers.db.CreateDatabaseFactory.createDatabaseHelper(CreateDatabaseFactory.java:33)
+	at com.kony.fabric.containers.db.CreateDatabaseFactory.main(CreateDatabaseFactory.java:49)
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at java.base/java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:399)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:242)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:224)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403)
+	at java.base/java.net.Socket.connect(Socket.java:591)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connect(AbstractConnectProtocol.java:447)
+	at org.mariadb.jdbc.internal.protocol.AbstractConnectProtocol.connectWithoutProxy(AbstractConnectProtocol.java:1084)
+	... 12 more
+Error occured while creating required databases
+Error occured while executing DB migrations.
+Check /Users/761735/Aaru/KonyPlatform/KonyFabric/KonyFabricSingleContainer-8.4.3.4_GA/flyway/dbmigration-130720193820.log for more information
+AMBIN01483:KonyFabricSingleContainer-8.4.3.4_GA 761735$ 
